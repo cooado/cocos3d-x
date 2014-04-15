@@ -125,10 +125,10 @@ public:
 	void stopAllAnimationClip();
 
     C3DAnimation* getAnimation() { return _animation; }
-protected:
 	// create sprite and add it to autorelease pool
 	static C3DSprite* create(const std::string& id);
 
+protected:
 	virtual void copyFrom(const C3DTransform* other, C3DNode::CloneContext& context);
 
 private:
