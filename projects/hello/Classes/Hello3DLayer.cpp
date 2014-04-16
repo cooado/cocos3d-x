@@ -31,14 +31,24 @@ bool Hello3DLayer::init()
 
 void Hello3DLayer::setUpScene()
 {
-    //create fish
-    cocos3d::C3DSprite* fish = cocos3d::C3DSprite::create("haigui");
-    fish->loadFromFile("demores/haigui/haigui.ckb",true);
-    fish->addAnimationClip("idle", 0, 60, 0, 1.0f);	
-    fish->scale(3.0f);
-    fish->playAnimationClip("idle");
-    fish->setPosition(0.0f, 0.0f, 0.0f);
-    _scene->addChild(fish);
+//    //create fish
+//    cocos3d::C3DSprite* fish = cocos3d::C3DSprite::create("haigui");
+//    fish->loadFromFile("demores/haigui/haigui.ckb",true);
+//    fish->addAnimationClip("idle", 0, 60, 0, 1.0f);	
+//    fish->scale(3.0f);
+//    fish->playAnimationClip("idle");
+//    fish->setPosition(0.0f, 0.0f, 0.0f);
+//    _scene->addChild(fish);
+
+    // create jerry
+    cocos3d::C3DSprite* jerry = cocos3d::C3DSprite::create("jerry");
+    jerry->loadFromFile("JY/JY FBX.ckb", true);
+    jerry->addAnimationClip("jump", 0, 49, 0, 1.0f);
+    jerry->scale(100.0f);
+    jerry->playAnimationClip("jump");
+    jerry->setPosition(0.0f, 0.0f, 0.0f);
+    jerry->rotateY(M_PI);
+    _scene->addChild(jerry);
 }
 
 void Hello3DLayer::update(float dt)
@@ -50,8 +60,8 @@ void Hello3DLayer::update(float dt)
 // setup initialize camera
 void Hello3DLayer::setUpCamera()
 {
-    C3DCamera* camera = C3DCamera::createPerspective(45, 0.75f, 1, 1000);
-    camera->lookAt(C3DVector3(0,50,100), C3DVector3(0, 1, 0), C3DVector3(0, 0, 0));
+    C3DCamera* camera = C3DCamera::createPerspective(45, 0.75f, 0.1f, 100);
+    camera->lookAt(C3DVector3(0,5,-30), C3DVector3(0, 1, 0), C3DVector3(0, 0, 0));
 
     _scene->addChild(camera);
     _scene->setActiveCamera(0);
